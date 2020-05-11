@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import kotlin.IllegalArgumentException as IllegalArgumentException
 
 class ArrayFunctionsTest {
     private val arrayFunctions = ArrayFunctions()
@@ -15,6 +16,15 @@ class ArrayFunctionsTest {
         Assertions.assertEquals(2, arrayFunctions.findSmallestElement(z))
     }
 
+    @Test
+    fun `find second smallest element needs at least two elements in array`() {
+        val x = arrayOf(8)
+        
+        Assertions.assertThrows(IllegalArgumentException::class.java) {
+            arrayFunctions.findSecondSmallestElement(x)
+        }
+    }
+    
     @Test
     fun `find second smallest element in array`() {
         val x = arrayOf(1, 2, 3)

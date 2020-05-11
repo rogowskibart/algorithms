@@ -11,6 +11,8 @@ class ArrayFunctions() {
     }
 
     fun findSecondSmallestElement(array: Array<Int>): Int {
+        if (array.size < 2) throw IllegalArgumentException("array is too small")
+
         var smallestElementIndex = 0
         var secondSmallestElement: Int
 
